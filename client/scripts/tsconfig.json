@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": "..",
     "module": "esnext",
     "target": "esnext",
-    "importHelpers": true,
     "sourceMap": false,
     "strict": true,
     "skipLibCheck": true,
@@ -11,10 +11,11 @@
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "paths": {
+      "@scripts/*": ["./scripts/*"]
+    }
   },
-  "include": ["./src"],
+  "include": ["./scripts"],
   "exclude": ["./node_modules"]
 }

@@ -17,7 +17,6 @@ async function createWindow() {
   // and load the index.html of the app.
   const indexHtmlFilename = path.resolve(__dirname, "../views/index.html");
   await mainWindow.loadFile(indexHtmlFilename);
-
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
