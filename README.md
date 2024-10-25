@@ -1,3 +1,3 @@
 # electron-template
 
-foobar
+electron learning
