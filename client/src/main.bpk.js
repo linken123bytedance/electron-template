@@ -1,6 +1,8 @@
-// Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
-const path = require('node:path')
+import {app, BrowserWindow} from 'electron'
+import path from 'node:path'
+import url from 'node:url'
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename)
 
 function createWindow () {
   // Create the browser window.
@@ -25,7 +27,6 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
