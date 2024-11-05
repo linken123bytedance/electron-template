@@ -1,20 +1,20 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "module": "esnext",
     "target": "esnext",
-    "importHelpers": true,
+    "module": "esnext",
     "sourceMap": false,
     "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitAny": false,
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "typeRoots": ["./node_modules/@types", "./src/types"]
-  },
-  "include": ["./src"],
-  "exclude": ["./node_modules"]
+    "noImplicitReturns": true
+  }
 }

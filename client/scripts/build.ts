@@ -1,23 +1,13 @@
-import child_process from "node:child_process";
-import url from "node:url";
-import path from "node:path";
-import type { ExecFileSyncOptions } from "child_process";
-
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { build_main } from "./utils/build_main";
+import { build_preload } from "./utils/build_preload";
+import { startup_electron } from "./utils/startup_electron";
+import { build_renderer } from "./utils/build_renderer";
 
 void main();
 
 async function main() {
-  const processOptions: any = {
-    cwd: path.resolve(__dirname, ".."),
-    stdio: "inherit",
-  } as ExecFileSyncOptions;
-
-  child_process.execSync(
-    `rollup --config rollup.config.ts --configPlugin typescript`,
-    processOptions,
-  );
-
-  child_process.execSync(`electron .`, processOptions);
+  await build_main();
+  await build_preload();
+  await build_renderer();
+  await startup_electron();
 }

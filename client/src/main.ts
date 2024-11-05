@@ -10,13 +10,23 @@ async function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "./preload/index.js"),
     },
   });
 
+  const url =
+    process.argv
+      .slice(2)
+      .find((x) => x.startsWith("--url="))
+      ?.slice(6) ?? null;
+  if (url) {
+    await mainWindow.loadURL(`http://localhost:5173`);
+  } else {
+    const indexHtmlFilename = path.resolve(__dirname, "./view/index.html");
+    await mainWindow.loadFile(indexHtmlFilename);
+  }
+
   // and load the index.html of the app.
-  const indexHtmlFilename = path.resolve(__dirname, "../views/index.html");
-  await mainWindow.loadFile(indexHtmlFilename);
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
